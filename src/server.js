@@ -3,6 +3,8 @@ const app =require("./app");
 
 const note=[]; 
 
+ // send the data 
+
 app.post("/note",(req, res)=>{
     console.log(req.body);
   
@@ -11,6 +13,42 @@ app.post("/note",(req, res)=>{
     res.status(201).json({
         message:"note is add"
     })    
+
+})
+
+// fetch the data 
+
+app.get("/note",(req,res)=>{
+
+    res.status(200).json({
+    message :"done ",
+        note:note
+    
+    })
+})
+
+//delete the data 
+
+app.delete("/note/:index",(req,res)=>{
+
+    const index = req.params.index
+ 
+   
+    note.splice(index, 1)
+        res.status(200).json({
+        message:"done "
+        })
+    
+})
+// update the existing data
+app.patch("/note/:index",(req,res)=>{
+    const index=req.params.index
+    const Age = req.body.age
+    note[index].age=Age
+    
+    res.status(200).json({
+        message:"updated"
+    })
 
 })
 
