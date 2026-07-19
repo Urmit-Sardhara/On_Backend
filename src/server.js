@@ -32,7 +32,12 @@ app.get("/note",(req,res)=>{
 app.delete("/note/:index",(req,res)=>{
 
     const index = req.params.index
- 
+    if(index<0||index>=note.length){
+       return res.status(404).json({
+            
+            message:"not found"
+        })
+    }
    
     note.splice(index, 1)
         res.status(200).json({
@@ -43,6 +48,11 @@ app.delete("/note/:index",(req,res)=>{
 // update the existing data
 app.patch("/note/:index",(req,res)=>{
     const index=req.params.index
+    if(index<0|| index>=note.length){
+        return res.status(404).json({
+            message:"not found"
+        })
+    }
     const Age = req.body.age
     note[index].age=Age
     
