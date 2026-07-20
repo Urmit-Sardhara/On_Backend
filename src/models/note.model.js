@@ -6,4 +6,6 @@
     })
 
     const noteModel=mongoose.model("note",noteShcema)
+
+    module.exports= noteModel
     
