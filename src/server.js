@@ -56,7 +56,26 @@ app.delete("/note/:num", async(req,res)=>{         // for delete data
             console.log(err.message);
             
         }
+})  
+    
+app.patch("/note/:num",async (req,res)=>{
+    const num = req.params.num
+    const data = req.body.description
+    try{
+      await noteModel.findOneAndUpdate({_id:num},{description:data})
+      res.status(200).json({message:"done"})
+    }
+    catch(err){
+        res.status(400).json({
+            message:"note delete",
+            
+        } )
+        console.log(err.message);
+        
+    }
 })
+
+
 
 app.listen(3000,()=>{
     console.log("server is runig ");
