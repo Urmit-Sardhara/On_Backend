@@ -12,7 +12,8 @@ app.get("/",(req ,res)=>{              // for test display
 })
 
 
-app.post("/note",async(req,res)=>{        // for add new data 
+app.post("/note",async(req,res)=>{        // for add new dat
+// a 
     const data = req.body
    await noteModel.create({
         title:data.title,
