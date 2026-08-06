@@ -5,6 +5,6 @@ const scema = new mongoose.Schema({
     age:Number,
 })
 
-const CRD_model = new mongoose.Model("test",scema)
+const CRD_model =  mongoose.model("test",scema)
 
 module.exports=CRD_model;

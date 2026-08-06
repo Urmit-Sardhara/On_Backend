@@ -1,3 +1,4 @@
+require("dotenv").config()
 const app = require ("./app.js")
 const connect =require ("./db/db.js")
 
